@@ -12,7 +12,7 @@ $$
 \lim _{x \rightarrow-\infty} \phi(x, t)=\phi_{-}, \quad \lim _{x \rightarrow+\infty} \phi(x, t)=\phi_{+},
 $$
 
-where $\phi_{-}<\phi_{+}$and $U\left(\phi_{ \pm}\right)=0$. An anti-kink is a solution satisfying the same conditions but with $\phi_{-}>\phi_{+}$.  For the $\phi^4$ theory, we take $U(\phi) = \frac{1}{2} (1-\phi^2)^2$, and this gives us:
+where $\phi_{-}<\phi_{+}$ and $U\left(\phi_{ \pm}\right)=0$. An anti-kink is a solution satisfying the same conditions but with $\phi_{-}>\phi_{+}$.  For the $\phi^4$ theory, we take $U(\phi) = \frac{1}{2} (1-\phi^2)^2$, and this gives us:
 $$
 \lim _{x \rightarrow-\infty} \phi(x,t)=-1
 $$
