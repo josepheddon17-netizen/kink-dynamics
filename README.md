@@ -45,6 +45,24 @@ kink-dynamics/
 - **Git and GitHub** — Version control and collaborative project development.
 - **LaTeX** — Mathematical documentation and preparation of the final report.
 
+# References
+
+The project draws upon the following academic literature and resources:
+
+TBC
+
+All external sources used in the project will be appropriately cited in the final report.
+
+# Use of Generative AI
+
+Generative AI tools, including ChatGPT (OpenAI), have been used as supplementary aids during the development of this project. Their use has included:
+
+* Clarifying mathematical concepts and supporting understanding of the analytical derivations from referenced textbooks.
+* Ensuring efficient coding practices for numerical methods and MATLAB implementation.
+* Assisting with debugging, code explanations and documentation.
+
+All mathematical derivations, numerical implementations, interpretations and conclusions are reviewed and verified by the group and subsequently wrote up by us.
+
 ## Project Status
 
 Currently in development. The analytical foundations and numerical implementation are being developed as we work on solving the governing $PDE$ numerically.
