@@ -216,6 +216,7 @@ $$
 $$
 
 This is the exact static kink solution. The anti-kink solution is therefore:
+
 $$
 \phi_{\overline{K}(x)}=\tanh \left(x-x_0\right) .
 $$
