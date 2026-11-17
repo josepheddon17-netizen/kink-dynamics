@@ -250,4 +250,4 @@ $$
 \frac{d^2 \phi}{d x^2}=\frac{d U}{d \phi} .
 $$
 
-An analytical solution allows us to test against with our finite difference scheme in MATLAB. All an anti-kink is the transition from $+1$ on the left to $-1$ on the right.
+An analytical solution allows us to test against with our finite difference scheme in MATLAB. An anti-kink is the transition from $+1$ on the left to $-1$ on the right.
