@@ -13,13 +13,17 @@ $$
 $$
 
 where $\phi_{-}<\phi_{+}$ and $U\left(\phi_{ \pm}\right)=0$. An anti-kink is a solution satisfying the same conditions but with $\phi_{-}>\phi_{+}$.  For the $\phi^4$ theory, we take $U(\phi) = \frac{1}{2} (1-\phi^2)^2$, and this gives us:
+
 $$
 \lim _{x \rightarrow-\infty} \phi(x,t)=-1
 $$
+
 and
+
 $$
 \lim _{x \rightarrow+\infty} \phi(x,t)=+1 .
 $$
+
 As we move between spatial infinities, there is a smooth localised transition between $-1\rightarrow1$ -  this is a kink.
 
 # Derivation of a Static Solution
