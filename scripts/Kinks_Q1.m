@@ -1,25 +1,19 @@
 %% 1. Spatial Discretisation
 
 % Number of spatial grid points and domain size
-
 N = 500;
 L = 10;
 
 % Spatial grid and grid spacing
-
 x = linspace(-L,L,N)';
 dx = x(2)-x(1);
 
 %% 2. Initial conditions 
 
-% The analytical solution tells us phi when stationary is tanh(x). Thus 
-% this is our initial value for phi.
-
+% The Bogomony bound solution tells us phi is tanh(x) when its stationary.
 phi0 = tanh(x);
 
-% We have theta = d(phi)/dt. Since the initial kink is stationary, the
-% initial velocity will be zero.
-
+% We have theta = d(phi)/dt = 0 initially
 theta0 = zeros(N,1);
 
 %% 3. Time parameters 
@@ -30,46 +24,39 @@ time = 0:dt:T;
 
 %% 4. Preallocate solution arrays
 
-% Our numerical scheme will store solutions at every spatial and temporal
-% grid point. For our set up, rows will correspond to the spatial positions
+% For this set up, rows will correspond to the spatial positions
 % and the columns to the time levels.
-
 phi = zeros(N,length(time));
 theta = zeros(N,length(time));
 
 % Set initial conditions at t=0
-
 phi(:,1) = phi0;
 theta(:,1) = theta0;
 
-%% 5. Laplacian Operator
+%% 5. Laplacian Matrix
 
 % We construct the finite difference approximation to the Laplacian using
-% the centred difference formula
+% the centred difference formula 
 
 one_vec = ones(N,1);
 Laplacian = spdiags([one_vec, -2*one_vec, one_vec], [-1,0,1], N,N);
 Laplacian = Laplacian/dx^2;
 
-%% 6. First time step
+%% 6. First time step, j = 1
 
 % First, we will calculate the initial acceleration using the phi^4
 % wave equation 
+acceleration0 = Laplacian*phi(:,1) + 2*phi(:,1).*(1 - phi(:,1).^2);
 
-acceleration = Laplacian*phi(:,1) + 2*phi(:,1).*(1 - phi(:,1).^2);
-
-% Using Dirichlet conditions, we have  the boundary values. So our calculation 
+% Using Dirichlet boundary conditions, we have zero as the boundary values. So our calculation 
 % only calculates the acceleration at interior grid points
-
 phi_tt0 = zeros(N,1);
 phi_tt0(2:end-1) = acceleration(2:end-1);
 
 % Use a second-order Taylor expansion to approximate phi at t = dt
-
 phi(:,2) = phi(:,1) + dt*theta(:,1) + 0.5*dt^2*phi_tt0;
 
 %Update the velocity using forward difference approximation
-
 theta(:,2) = theta(:,1) + dt*phi_tt0;
 
 %% 7. Boundary conditions 
@@ -77,31 +64,25 @@ theta(:,2) = theta(:,1) + dt*phi_tt0;
 % We implement the fixed Dirichlet boundary conditions corresponding to the
 % two vacuum states of the phi^4 potential. Furthermore, the velocity is
 % zero at both boundaries.
-
 phi([1,end],2) = [-1; 1];
 theta([1,end],2) = 0;
-
 
 %% 8. Centred difference time stepping
 
 % We take the solution through time using centred finite differences.
-
 for j = 2:length(time)-1
 
 % First we update phi using centred difference approximation
-
    phi(:,j+1) = phi(:,j-1) + 2*dt*theta(:,j);
 
 % Next we calculate the acceleration at the current time
-   
-   acceleration = Laplacian*phi(:,j) + 2*phi(:,j).*(1 - phi(:,j).^2);
+   phi_tt = Laplacian*phi(:,j) + 2*phi(:,j).*(1 - phi(:,j).^2);
 
 % The velocity is then updated using a centred difference approximation in
 % time.
-   theta(2:end-1,j+1) = theta(2:end-1,j-1) + 2*dt*acceleration(2:end-1);
+   theta(2:end-1,j+1) = theta(2:end-1,j-1) + 2*dt*phi_tt(2:end-1);
    
 %The fixed boundary conditions are reapplied at every time step
-
    phi([1,end],j+1) = [-1; 1];
    theta([1,end],j+1) = 0;
 end
