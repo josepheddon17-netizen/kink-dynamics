@@ -51,7 +51,7 @@ acceleration0 = Laplacian*phi(:,1) + 2*phi(:,1).*(1 - phi(:,1).^2);
 % Using Dirichlet boundary conditions, we have zero as the boundary values. So our calculation 
 % only calculates the acceleration at interior grid points
 phi_tt0 = zeros(N,1);
-phi_tt0(2:end-1) = acceleration(2:end-1);
+phi_tt0(2:end-1) = acceleration0(2:end-1);
 
 % Use a second-order Taylor expansion to approximate phi at t = dt
 phi(:,2) = phi(:,1) + dt*theta(:,1) + 0.5*dt^2*phi_tt0;
