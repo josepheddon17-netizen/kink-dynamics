@@ -138,8 +138,7 @@ for j = 1:50:length(time)
 
     xlabel('x')
     ylabel('\phi(x,t)')
-    title(['Kink-Antikink Collision, v = ', num2str(v), ...
-        ', t = ', num2str(time(j),'%.2f')])
+    title(['Kink-Antikink Collision, v = ', num2str(v),', t = ', num2str(time(j),'%.2f')])
 
     xlim([-L L])
     ylim([-1.5 1.5])
