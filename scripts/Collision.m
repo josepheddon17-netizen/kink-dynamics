@@ -126,7 +126,7 @@ end
 %% 10. Animation
 
 % Create video
-video = VideoWriter('kink_antikink_v05.avi', 'Motion JPEG AVI');
+video = VideoWriter('kink_antikink.avi', 'Motion JPEG AVI');
 video.FrameRate = 30;
 open(video);
 
