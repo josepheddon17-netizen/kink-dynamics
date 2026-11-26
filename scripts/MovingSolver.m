@@ -135,33 +135,21 @@ fprintf('Maximum deviation: %.6e\n', max_deviation);
 % Our first figure plots the numerical solution at the final simulation
 % time.
 
-fig = figure('Color', 'white', ...
-    'Units', 'centimeters', ...
-    'Position', [2, 2, 16, 10]);
+fig = figure('Units', 'centimeters','Position', [2, 2, 16, 10]);
 
-ax = axes('Parent', fig, ...
-    'Color', 'white', ...
-    'XColor', 'black', ...
-    'YColor', 'black', ...
-    'FontSize', 12, ...
-    'FontName', 'Arial', ...
-    'LineWidth', 1);
+ax = axes('FontSize', 16, 'LineWidth', 1);
 
 hold(ax, 'on');
 
-plot(ax, x,phi(:,end), 'b--', 'LineWidth', 1.5);
-plot(ax, x, analytical_final, 'r--', 'LineWidth', 1.5);
+plot(ax, x,phi(:,end), 'b', 'LineWidth', 2.5);
+plot(ax, x, analytical_final, 'c--', 'LineWidth', 2);
 
-xlabel(ax, 'x', 'FontSize', 12);
-ylabel(ax, '$\phi(x,t)$', 'Interpreter', 'latex', 'FontSize', 12);
-title(ax, 'Solution at Final Time', 'FontSize', 14);
+xlabel(ax, 'x', 'FontSize', 16);
+ylabel(ax, '$\phi(x,t)$', 'Interpreter', 'latex', 'FontSize', 16);
+title(ax, 'Solution at Final Time', 'FontSize', 16);
 
 lgd = legend(ax, 'Numerically Approximated Kink', 'Analytical Kink');
-lgd.FontSize = 11;
-lgd.FontName = 'Arial';
-lgd.Color = 'white';
-lgd.TextColor = 'black';
-lgd.EdgeColor = [0.3 0.3 0.3];
+lgd.FontSize = 16;
 
 grid(ax, 'on');
 box(ax, 'on');
@@ -169,34 +157,23 @@ hold(ax, 'off');
 
 % Our next plot is of the final velocity 
 
-fig = figure('Color', 'white', ...
-    'Units', 'centimeters', ...
+fig = figure('Units', 'centimeters', ...
     'Position', [2, 2, 16, 10]);
 
-ax = axes('Parent', fig, ...
-    'Color', 'white', ...
-    'XColor', 'black', ...
-    'YColor', 'black', ...
-    'FontSize', 12, ...
-    'FontName', 'Arial', ...
-    'LineWidth', 1);
+ax = axes('FontSize',16,'LineWidth', 1);
 
 hold(ax, 'on');
 
-plot(ax, x,theta(:,end), 'g--', 'LineWidth', 1.5);
-plot(ax, x,analytical_velocity, 'm--', 'LineWidth', 1.5);
+plot(ax, x,theta(:,end), 'b', 'LineWidth', 2.5);
+plot(ax, x,analytical_velocity, 'c--', 'LineWidth', 2);
 
 
-xlabel(ax, 'x', 'FontSize', 12);
-ylabel(ax, '$\theta(x,t)$', 'Interpreter', 'latex', 'FontSize', 12);
-title(ax, 'Final Velocity Profile', 'FontSize', 14);
+xlabel(ax, 'x', 'FontSize', 16);
+ylabel(ax, '$\theta(x,t)$', 'Interpreter', 'latex', 'FontSize', 16);
+title(ax, 'Final Velocity Profile', 'FontSize', 16);
 
 lgd = legend(ax, 'Velocity','Analytical Velocity');
-lgd.FontSize = 11;
-lgd.FontName = 'Arial';
-lgd.Color = 'white';
-lgd.TextColor = 'black';
-lgd.EdgeColor = [0.3 0.3 0.3];
+lgd.FontSize = 16;
 
 grid(ax, 'on');
 box(ax, 'on')
